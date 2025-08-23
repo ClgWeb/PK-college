@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -37,7 +37,7 @@
       </div>
         
       <div>
-      <button class="btn-gradient" style="margin-top: 12px;">Login</button>
+     <a href="/login"><button class="btn-gradient" id="login" style="margin-top: 12px;">Login</button></a>
     </div>
      
     
@@ -95,6 +95,11 @@
 
 
   <script>
+    const URl ="https://pk-college.onrender.com/"
+
+document.getElementById('login').addEventListener('click', () => {
+  window.location.href = "/login";  // Navigate directly
+});
   // Get all navigation links
   const navLinks = document.querySelectorAll(".Navigation ul li a");
 

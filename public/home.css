@@ -143,36 +143,7 @@ body{
   width: 100%;
 }
 
-.image-container {
-  position: relative;
-  width: 100%;
-  height: 500px; /* or 100vh if you want full screen */
-  overflow: hidden;
-}
-.bg-img,
-.overlay-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* keeps image natural, crops instead of stretching */
-}
 
-.overlay-img {
-  opacity: 0.65; /* darkness control */
-  z-index: 1;
-}
-
-.content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  display: flex;
-  transform: translate(-50%, -50%);
-  color: white;
-  z-index: 2; /* above overlay */
-}
 
 .about-section {
   display: flex;
@@ -209,4 +180,110 @@ body{
   border-radius: 10px;
   box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
 }
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 400px;   /* fixed visible height */
+  overflow: hidden;
+  border-radius: 10px;
+}
 
+.carousel-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 2; /* above overlay */
+}
+
+.carousel-content h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.6s ease-in-out;
+}
+
+.carousel-track img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* 👈 this makes the photo fill while keeping ratio */
+  flex-shrink: 0;
+  border-radius: 10px;
+}
+/* 📱 Responsive adjustments */
+@media (max-width: 768px) {
+  .carousel {
+    height: 250px; /* smaller on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel {
+    height: 180px; /* even smaller on phones */
+  }
+}
+/* Buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(28,28,28,0.6);
+  border: none;
+  color: white;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 18px;
+  z-index: 5;
+  transition: background 0.3s ease;
+}
+.carousel-btn:hover {
+  background: rgba(255, 77, 1, 0.8);
+}
+
+.prev { left: 15px; }
+.next { right: 15px; }
+
+/* Dots */
+.carousel-dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.carousel-dots button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: #bbb;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.carousel-dots button.active {
+  background: rgb(255, 77, 1);
+}
+
+.carousel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65); /* black overlay */
+  pointer-events: none;
+  border-radius: 10px;
+  z-index: 1;
+}

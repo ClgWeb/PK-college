@@ -61,12 +61,32 @@
   </div>
   <div>
       <div class="image-container">
-    <img class="bg-img" src="https://i.pinimg.com/1200x/7d/2a/68/7d2a68406b519c97d9beeadc420ce13d.jpg" alt="Background">
+    <!-- <img class="bg-img" src="https://i.pinimg.com/1200x/7d/2a/68/7d2a68406b519c97d9beeadc420ce13d.jpg" alt="Background">
     <img class="overlay-img" src="https://i.pinimg.com/1200x/5d/97/ef/5d97ef31511d9c36c12f546ae1d2d3ec.jpg" alt="Overlay">
     <div class="content">
       <h1 >Welcome to Our </h1>
       <h1 style="color:  rgb(255, 77, 1); padding-left: 10px;">College</h1>
-    </div>
+    </div> -->
+    <div class="carousel">
+  <div class="carousel-track">
+    <img src="https://www.shutterstock.com/image-photo/concentrated-young-female-student-engaged-600nw-2458397479.jpg" alt="Image 1">
+    <img src="https://wallpaperbat.com/img/145526090-financial-mistakes-college-students.jpg" alt="Image 2">
+    <img src="https://e0.pxfuel.com/wallpapers/585/530/desktop-wallpaper-students-college-student.jpg" alt="Image 3">
+    <img src="https://i.pinimg.com/736x/3f/b2/62/3fb262c2961a50eb1fa88102cc80d679.jpg" alt="Image 4">
+    <img src="https://i.pinimg.com/736x/98/38/f0/9838f08e9bc16d64d3bdca0a3dea0e5f.jpg" alt="Image 5">
+  </div>
+  <div class="carousel-content" style="display: flex; ">
+    <h2>Welcome to Our</h2>
+    <h2 style="color:  rgb(255, 77, 1); margin-left: 15px;">College</h2>
+  </div>
+  <!-- Navigation Arrows -->
+  <button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
+  <button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button>
+
+  <!-- Dots -->
+  <div class="carousel-dots"></div>
+</div>
+
     </div>
 
 
@@ -96,6 +116,69 @@
 
   <script>
     const URl ="https://pk-college.onrender.com/"
+
+    const track = document.querySelector(".carousel-track");
+const slides = Array.from(track.children);
+const nextBtn = document.querySelector(".next");
+const prevBtn = document.querySelector(".prev");
+const dotsContainer = document.querySelector(".carousel-dots");
+
+let currentIndex = 0;
+let autoSlideInterval;
+
+// Create dots
+slides.forEach((_, i) => {
+  const dot = document.createElement("button");
+  if (i === 0) dot.classList.add("active");
+  dotsContainer.appendChild(dot);
+});
+const dots = Array.from(dotsContainer.children);
+
+// Function to move carousel
+function moveToSlide(index) {
+  track.style.transform = `translateX(-${index * 100}%)`;
+  dots.forEach(dot => dot.classList.remove("active"));
+  dots[index].classList.add("active");
+  currentIndex = index;
+}
+
+// Next button
+nextBtn.addEventListener("click", () => {
+  let nextIndex = (currentIndex + 1) % slides.length;
+  moveToSlide(nextIndex);
+  resetAutoSlide();
+});
+
+// Prev button
+prevBtn.addEventListener("click", () => {
+  let prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+  moveToSlide(prevIndex);
+  resetAutoSlide();
+});
+
+// Dots click
+dots.forEach((dot, i) => {
+  dot.addEventListener("click", () => {
+    moveToSlide(i);
+    resetAutoSlide();
+  });
+});
+
+// Auto Slide
+function autoSlide() {
+  autoSlideInterval = setInterval(() => {
+    let nextIndex = (currentIndex + 1) % slides.length;
+    moveToSlide(nextIndex);
+  }, 3000); // 3 seconds
+}
+
+function resetAutoSlide() {
+  clearInterval(autoSlideInterval);
+  autoSlide();
+}
+
+autoSlide();
+
 
 document.getElementById('login').addEventListener('click', () => {
   window.location.href = "/login";  // Navigate directly

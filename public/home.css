@@ -106,4 +106,100 @@ body{
   .Navigation ul li a {
     text-decoration: none;
     color:white;
+    position: relative; /* needed for the underline effect */
+  transition: color 0.3s ease-in-out;
   }
+
+  .Navigation ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px; /* space below text */
+  width: 0;
+  height: 2px;
+  background: rgb(255, 77, 1);
+  transition: width 0.3s ease-in-out;
+}
+
+.Navigation ul li a:hover {
+  color: rgb(255, 77, 1); /* orange text on hover */
+}
+
+.Navigation ul li a:hover::after {
+  width: 100%; /* underline grows smoothly */
+}
+
+.Navigation ul li a.active {
+  color: rgb(255, 77, 1);
+}
+
+.Navigation ul li a.active::after {
+  width: 100%;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 500px; /* or 100vh if you want full screen */
+  overflow: hidden;
+}
+.bg-img,
+.overlay-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* keeps image natural, crops instead of stretching */
+}
+
+.overlay-img {
+  opacity: 0.65; /* darkness control */
+  z-index: 1;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  transform: translate(-50%, -50%);
+  color: white;
+  z-index: 2; /* above overlay */
+}
+
+.about-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  gap: 30px;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-text h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #002366;
+}
+
+.about-text p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.about-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.about-image img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+}

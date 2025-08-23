@@ -53,6 +53,55 @@
       </ul>
     </nav>
   </div>
+  <div>
+      <div class="image-container">
+    <img class="bg-img" src="https://i.pinimg.com/1200x/7d/2a/68/7d2a68406b519c97d9beeadc420ce13d.jpg" alt="Background">
+    <img class="overlay-img" src="https://i.pinimg.com/1200x/5d/97/ef/5d97ef31511d9c36c12f546ae1d2d3ec.jpg" alt="Overlay">
+    <div class="content">
+      <h1 >Welcome to Our </h1>
+      <h1 style="color:  rgb(255, 77, 1); padding-left: 10px;">College</h1>
+    </div>
+    </div>
+
+
+
+  </div>
+  <br>
+ <h1 style="color: rgb(255, 77, 1); text-align:center;">About Us</h1>
+<br>
+<div class="about-section">
+  <div class="about-text">
+    <h2>Toppers' Top Choice. Experiential Learning.</h2>
+    <h2 style="color: rgb(255, 77, 1);">Fantabulous Campus.</h2>
+    <p>
+      Perunthalaivar Kamarajar Government Arts and Science College is the most
+      preferred institution for high ranking students. With industry-relevant
+      curriculum, project-based learning, experienced faculty, modern facilities,
+      and vibrant activities, the college stands as a leading institution for
+      holistic education.
+    </p>
+    
+  </div>
+  <div class="about-image">
+    <img src="https://i.pinimg.com/736x/df/21/b6/df21b6a90480d6206624ceeb6006ed37.jpg" alt="Campus" />
+  </div>
+</div>
+
+
+  <script>
+  // Get all navigation links
+  const navLinks = document.querySelectorAll(".Navigation ul li a");
+
+  navLinks.forEach(link => {
+    link.addEventListener("click", function () {
+      // Remove active class from all links
+      navLinks.forEach(l => l.classList.remove("active"));
+      // Add active class to the clicked link
+      this.classList.add("active");
+    });
+  });
+</script>
+
 </body>
 </html>
 

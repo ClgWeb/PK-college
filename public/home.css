@@ -81,3 +81,29 @@ body{
     text-decoration: none;
     color: #333;
   }
+
+  .Navigation{
+    display: flex;
+    padding: 7px;
+     background: rgba(28, 28, 28, 0.815);
+  }
+
+  .Navigation ul {
+    list-style: none;
+    padding: 0;
+    
+  
+  }
+
+  .Navigation ul li {
+    margin: 0.5rem 0;
+    display:inline-block;
+    margin: 20px;
+    padding: 15px;
+    font-size: 18px;
+ 
+  }
+  .Navigation ul li a {
+    text-decoration: none;
+    color:white;
+  }

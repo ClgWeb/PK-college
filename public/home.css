@@ -95,7 +95,7 @@ body{
 
   .Navigation ul {
     list-style: none;
-    padding: 0;
+    padding: 20px;
     margin-left: 20px;
     
   
@@ -104,9 +104,10 @@ body{
   .Navigation ul li {
     margin: 0.5rem 0;
     display:inline-block;
-    margin: 20px;
-    padding: 15px;
+    margin: 5px;
+    padding: 10px;
     font-size: 18px;
+    margin-left: 8px;
  
   }
   .Navigation ul li a {
@@ -212,7 +213,7 @@ body{
 
 .carousel-track img {
   width: 100%;
-  height: 100%;
+  height: 400px;
   object-fit: cover;   /* 👈 this makes the photo fill while keeping ratio */
   flex-shrink: 0;
   border-radius: 10px;
@@ -286,4 +287,214 @@ body{
   pointer-events: none;
   border-radius: 10px;
   z-index: 1;
+}
+/* Side Navigation */
+/* Toggle Button */
+.toggle-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: rgb(255, 77, 1);
+  border: none;
+  color: white;
+  font-size: 20px;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  z-index: 1100;
+  margin-top: 45px;
+}
+
+/* Sidebar (hidden by default) */
+.SideNavigation {
+  position: fixed;
+  top: 0;
+  left: -250px; /* hidden */
+  width: 230px;
+  height: 100vh;
+  background: rgba(28, 28, 28, 0.95);
+  padding-top: 80px;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: left 0.3s ease;
+}
+
+/* When active (visible) */
+.SideNavigation.active {
+  left: 0;
+}
+
+.SideNavigation nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 20px;
+}
+
+.SideNavigation nav ul li {
+  margin: 10px 0;
+  display: block; /* ensures one per row */
+}
+
+.SideNavigation nav ul li a {
+  display: block;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.SideNavigation nav ul li a:hover {
+  color: rgb(255, 77, 1);
+}
+
+.SideNavigation nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: rgb(255, 77, 1);
+  transition: width 0.3s ease-in-out;
+}
+
+.SideNavigation nav ul li a:hover::after,
+.SideNavigation nav ul li a.active::after {
+  width: 100%;
+}
+
+.SideNavigation nav ul li a.active {
+  color: rgb(255, 77, 1);
+}
+
+/* Content shift only if you want */
+.main-content {
+  transition: margin-left 0.3s ease;
+}
+.SideNavigation.active ~ .main-content {
+  margin-left: 230px;
+}
+
+/* Dropdown styling */
+.Navigation ul li.dropdown {
+  position: relative;
+}
+
+.Navigation ul li .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%; /* show below parent */
+  left: 0;
+  background: rgba(28, 28, 28, 0.95);
+  min-width: 220px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+  z-index: 1000;
+  padding: 10px 0;
+}
+
+.Navigation ul li .dropdown-menu li {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.Navigation ul li .dropdown-menu li a {
+  display: block;
+  padding: 10px 15px;
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.Navigation ul li .dropdown-menu li a:hover {
+  background: rgba(255, 77, 1, 0.9);
+  color: #fff;
+}
+
+/* Show dropdown on hover */
+.Navigation ul li.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Keep parent link highlighted when hovering dropdown menu */
+.Navigation ul li.dropdown:hover > a {
+  color: rgb(255, 77, 1);
+}
+
+.Navigation ul li.dropdown:hover > a::after {
+  width: 100%;
+}
+
+.Navigation ul li.dropdown a::after,
+.Navigation ul li.dropdown a:hover::after {
+  display: none !important;
+}
+
+ .SideNavigation ul li.dropdown {
+  position: relative;
+}
+
+.SideNavigation ul li .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%; /* show below parent */
+  left: 0;
+  background: rgba(28, 28, 28, 0.95);
+  min-width: 220px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+  z-index: 1000;
+  padding: 10px 0;
+}
+
+.SideNavigation ul li .dropdown-menu li {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.SideNavigation ul li .dropdown-menu li a {
+  display: block;
+  padding: 10px 15px;
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.SideNavigation ul li .dropdown-menu li a:hover {
+  background: rgba(255, 77, 1, 0.9);
+  color: #fff;
+}
+
+/* Show dropdown on hover */
+.SideNavigation ul li.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Keep parent link highlighted when hovering dropdown menu */
+.SideNavigation ul li.dropdown:hover > a {
+  color: rgb(255, 77, 1);
+}
+
+.SideNavigation ul li.dropdown:hover > a::after {
+  width: 100%;
+}
+
+.SideNavigation ul li.dropdown a::after,
+.SideNavigation ul li.dropdown a:hover::after {
+  display: none !important;
+} 
+
+.footer{
+  background: rgba(28, 28, 28, 0.815);
+  display: flex;
+  padding: 50px;
+  color: white;
+  justify-content: center;
 }

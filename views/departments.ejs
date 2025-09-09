@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departments - PKG College</title>
+    <link rel="stylesheet" href="./home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+
+    <div class="departments-container">
+        <h1>Our Departments</h1>
+        <div class="departments-grid">
+            <% departments.forEach(dept => { %>
+                <div class="department-card">
+                    <div class="department-icon">
+                        <i class="<%= dept.icon %>"></i>
+                    </div>
+                    <h2><%= dept.name %></h2>
+                    <p><%= dept.description %></p>
+                    <div class="department-details">
+                        <p><strong>HOD:</strong> <%= dept.hod %></p>
+                        <p><strong>Programs:</strong> <%= dept.programs.join(', ') %></p>
+                    </div>
+                    <a href="/department/<%= dept.id %>" class="btn-gradient">Learn More</a>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+
+    <style>
+        .departments-container {
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .departments-container h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .departments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .department-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .department-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .department-icon {
+            text-align: center;
+            font-size: 40px;
+            color: rgb(255, 77, 1);
+            margin-bottom: 15px;
+        }
+
+        .department-card h2 {
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .department-card p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .department-details {
+            margin: 15px 0;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 5px;
+        }
+
+        .department-details p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .departments-container {
+                padding: 20px;
+            }
+            
+            .departments-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,76 @@
+    <div class="Navinfo" style="display: flex;justify-content: space-between;">
+        <div class="clg-logo">
+            <img style="width: 160px; height: 150px;" src="https://files.prokerala.com/education/imgs/logo/college/perunthalaivar-kamarajar-government-arts-college-37062.webp" alt="logo" width="100">
+            <div style="margin-top:35px;">
+                <h2>Perunthalaivar Kamarajar Government Arts and Science College</h2>
+                <h4>(A Govt. of Puducherry Undertaking Sponsored by Pondicherry Society for Higher Education)</h4>
+                <h3>Kalitheerthlkuppam, Puducherry - 605107</h3>
+            </div>
+        </div>
+        <div style="margin-top: 35px;">
+            <a href="/login"><button class="btn-gradient" id="login" style="margin-top: 12px;">Login</button></a>
+        </div>
+    </div>
+
+    <div class="Navigation">
+        <nav>
+            <ul>
+                <li><a href="/" class="<%= typeof active !== 'undefined' && active === 'home' ? 'active' : '' %>">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="<%= typeof active !== 'undefined' && active === 'about' ? 'active' : '' %>">About us</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/about#vision">Vision & Mission</a></li>
+                        <li><a href="/about#chairman">Chairman's Message</a></li>
+                        <li><a href="/about#secretary">Member Secretary's Message</a></li>
+                        <li><a href="/about#principal">Principal Desk</a></li>
+                        <li><a href="/about#governing">Governing Body</a></li>
+                        <li><a href="/about#orgchart">Organizational Chart</a></li>
+                        <li><a href="/about#logo">Logo of the College</a></li>
+                        <li><a href="/about#office">Office Administration</a></li>
+                        <li><a href="/about#rti">RTI</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="/departments" class="<%= typeof active !== 'undefined' && active === 'departments' ? 'active' : '' %>">Departments</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/department/tamil">Department of Tamil</a></li>
+                        <li><a href="/department/english">Department of English</a></li>
+                        <li><a href="/department/computer-science">Department of Computer Science</a></li>
+                        <li><a href="/department/mathematics">Department of Mathematics</a></li>
+                        <li><a href="/department/history">Department of History</a></li>
+                        <li><a href="/department/tourism">Department of Tourism</a></li>
+                        <li><a href="/department/commerce">Department of Commerce</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="<%= typeof active !== 'undefined' && active === 'admission' ? 'active' : '' %>">Admission</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/admission#process">Admission Process</a></li>
+                        <li><a href="/admission#prospectus">View Prospectus</a></li>
+                        <li><a href="/admission#rules">College Rules & Regulation</a></li>
+                    </ul>
+                </li>
+                <li><a href="/courses" class="<%= typeof active !== 'undefined' && active === 'courses' ? 'active' : '' %>">Courses</a></li>
+                <li class="dropdown">
+                    <a href="/infrastructure" class="<%= typeof active !== 'undefined' && active === 'infrastructure' ? 'active' : '' %>">Infrastructure</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/infrastructure#library">Library</a></li>
+                        <li><a href="/infrastructure#computer-lab">Computer Laboratory</a></li>
+                        <li><a href="/infrastructure#playground">Play Ground</a></li>
+                        <li><a href="/infrastructure#ladies-room">Ladies Retiring Room</a></li>
+                        <li><a href="/infrastructure#auditorium">Auditorium</a></li>
+                        <li><a href="/infrastructure#language-lab">Language Lab</a></li>
+                        <li><a href="/infrastructure#facilities">Facilities</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="/activities" class="<%= typeof active !== 'undefined' && active === 'activities' ? 'active' : '' %>">Activities</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/activities#sports">Sports</a></li>
+                        <li><a href="/activities#nss">NSS</a></li>
+                        <li><a href="/activities#cultural">Cultural</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
